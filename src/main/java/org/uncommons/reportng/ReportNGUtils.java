@@ -299,9 +299,9 @@ public class ReportNGUtils
     {
         switch (character)
         {
-            case '<': return "&lt;";
-            case '>': return "&gt;";
-            case '"': return "&quot;";
+//            case '<': return "&lt;";
+//            case '>': return "&gt;";
+//            case '"': return "&quot;";
             case '\'': return "&apos;";
             case '&': return "&amp;";
             default: return String.valueOf(character);
@@ -454,7 +454,7 @@ public class ReportNGUtils
         Matcher matcher = pattern.matcher(s);
         while (matcher.find()) {
             String group = matcher.group(1);
-            //可根据实际情况多个图片 全部一起return
+            //å�¯æ ¹æ�®å®žé™…æƒ…å†µå¤šä¸ªå›¾ç‰‡ å…¨éƒ¨ä¸€èµ·return
             return group;
         }
         return "";
