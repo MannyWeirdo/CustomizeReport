@@ -41,20 +41,6 @@
       <i>$messages.getString("methodArguments"): </i><span class="arguments">$utils.getArguments($testResult)</span><br />
     #end
 
-    ## Show logger output for the test.
-    #set ($output = $utils.getTestOutput($testResult))
-    #if ($output.size() > 0)
-    <div class="testOutput">
-      #foreach( $line in $output )
-        #if ($meta.shouldEscapeOutput())
-          $utils.escapeHTMLString($utils.removeImage($line))<br />
-        #else
-            $utils.removeImage($line)<br />
-        #end
-      #end
-    </div>
-    #end
-
 
     #if ($testResult.throwable && ( $testResult.status == 2 || $meta.shouldShowExpectedExceptions()))
     <a href="javascript:toggleElement('exception-$id', 'block')" title="$messages.getString("clickToExpandCollapse")"><b>$utils.escapeHTMLString( $testResult.throwable.toString() )</b></a><br />
@@ -77,18 +63,19 @@
     #set ($id = $id + 1)
   </td>
   <td class="screenshot">
-      #set ($output = $utils.getTestOutput($testResult))
-      #if ($output.size() > 0)
-          <div class="screenshotimage">
-              #foreach( $line in $output )
-                  #if ($meta.shouldEscapeOutput())
-                      $utils.escapeHTMLString($utils.getImageString($line))<br />
-                  #else
-                      $utils.getImageString($line)<br />
-                  #end
-              #end
-          </div>
+  ## Show logger output for the test.
+    #set ($output = $utils.getTestOutput($testResult))
+    #if ($output.size() > 0)
+    <div class="testOutput">
+      #foreach( $line in $output )
+        #if ($meta.shouldEscapeOutput())
+          $utils.escapeHTMLString($utils.removeImage($line))<br />
+        #else
+            $utils.removeImage($line)<br />
+        #end
       #end
+    </div>
+    #end
   </td>
 </tr>
 #end
