@@ -2,9 +2,6 @@
 ## methods in a single class for inclusion in the HTML report.  It assumes that the
 ## the results for the class are in a variable called $classResults.  $id is a page
 ## scope variable that is used to assign unique identifiers to divs.
-<link rel="stylesheet" href="/path/to/pgwslideshow.css">
-<script src="jquery/1.11.0/jquery.min.js"></script>
-<script src="/path/to/pgwslideshow.js"></script>
 #foreach ($testResult in $classResults)
 <tr>
   <td class="method">
