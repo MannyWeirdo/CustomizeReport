@@ -2,7 +2,9 @@
 ## methods in a single class for inclusion in the HTML report.  It assumes that the
 ## the results for the class are in a variable called $classResults.  $id is a page
 ## scope variable that is used to assign unique identifiers to divs.
-
+<link rel="stylesheet" href="/path/to/pgwslideshow.css">
+<script src="jquery/1.11.0/jquery.min.js"></script>
+<script src="/path/to/pgwslideshow.js"></script>
 #foreach ($testResult in $classResults)
 <tr>
   <td class="method">
@@ -65,15 +67,15 @@
   <td class="screenshot">
     #set ($output = $utils.getTestOutput($testResult))
     #if ($output.size() > 0)
-    <div class="testOutput">
+    <ul class="pgwSlideshow">
       #foreach( $line in $output )
         #if ($meta.shouldEscapeOutput())
-          $utils.escapeHTMLString($utils.removeImage($line))<br />
+          $utils.escapeHTMLString($utils.removeImage($line))
         #else
-            $utils.removeImage($line)<br />
+            $utils.removeImage($line)
         #end
       #end
-    </div>
+    </ul>
     #end
   </td>
 </tr>

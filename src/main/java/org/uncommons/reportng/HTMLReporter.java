@@ -297,6 +297,11 @@ public class HTMLReporter extends AbstractReporter
         copyClasspathResource(outputDirectory, "reportng.css", "reportng.css");
         copyClasspathResource(outputDirectory, "reportng.js", "reportng.js");
         copyClasspathResource(outputDirectory, "jquery.min.js", "jquery.min.js");
+        copyClasspathResource(outputDirectory,"default.css","default.css");
+        copyClasspathResource(outputDirectory,"normalize.css","normalize.css");
+        copyClasspathResource(outputDirectory,"pgwslideshow_light.css","pgwslideshow_light.css");
+        copyClasspathResource(outputDirectory,"pgwslideshow.css","pgwslideshow.css");
+        copyClasspathResource(outputDirectory,"pgwslideshow.js","pgwslideshow.js");        
         copyImageFile(outputDirectory, "jiedaibao.png", "jiedaibao.png");
         // If there is a custom stylesheet, copy that.
         File customStylesheet = META.getStylesheetPath();
