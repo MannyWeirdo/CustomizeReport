@@ -4,6 +4,12 @@
 ## scope variable that is used to assign unique identifiers to divs.
 #foreach ($testResult in $classResults)
 <tr>
+  <a class="method" href="javascript:toggleElement('$testResult', 'block')">
+  <hr style="FILTER:progid:DXImageTransform.Microsoft.Shadow(color:#f6ae56,direction:145,strength:15)" color="#00ffff" size="5" width="100%">
+  </br>
+  </br>
+	 $messages.getString("clickToExpandCollapse")
+  </a>
   <td class="method">
     #set ($testInstanceName = "")
     #if ($testResult.testName)
@@ -61,7 +67,11 @@
     #end
     #set ($id = $id + 1)
   </td>
-  <td class="screenshot">
+  #if ($testResult.throwable && ( $testResult.status == 2 || $meta.shouldShowExpectedExceptions()))
+  	<td class="screenshot"  id="$testResult">
+  #else
+  	<td class="screenshot"  id="$testResult" style="display: none;">
+  #end
     #set ($output = $utils.getTestOutput($testResult))
     #if ($output.size() > 0)
     <ul class="pgwSlideshow">
